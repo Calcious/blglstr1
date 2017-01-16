@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('register page')" />
+<body>
+<nav th:replace="partials/navbar :: navbar" />
+<div class="container container-marketing">
+    <h1>Create an account</h1>
+    <p><em>Please fill in your information</em></p>
+    <hr />
+    <form th:action="@{/register}" th:method="POST">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" class="form-control register_field" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" class="form-control register_field" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" class="form-control register_field" type="password" required="true" />
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input id="confirm_password" name="confirm_password" class="form-control register_field" type="password" required="true" />
+        </div>
+        <input type="submit" class="btn btn-primary btn-block" id="submit_length_mod_reg" />
+    </form>
+</div>
+
+<footer th:replace="partials/footer :: footer" />
+
+<script src="../../static/passwordConfirm.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header(${error})" />
+<body>
+<nav th:replace="partials/navbar :: navbar" />
+
+<h1 th:text="${error}"></h1>
+
+
+
+
+
+<footer th:replace="partials/footer :: footer" />
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('navbar partial')" />
+<body>
+<nav th:fragment="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" id="navbar_cust">
+        <div class="navbar-header">
+            <a class="navbar-brand welcome_title" th:href="@{/main}">AR Productions || BLGLSTR</a>
+            <a class="navbar-brand" th:href="@{/posts}" id="pending_ads">POST ARCHIVE</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a th:href="@{/register}" sec:authorize="!isAuthenticated()" id="sign_up">REGISTER</a></li>
+            <li><a th:href="@{/create}" sec:authorize="isAuthenticated()" class="success">POST</a></li>
+            <li><a th:href="@{/login}" sec:authorize="!isAuthenticated()">LOGIN</a></li>
+            <li><a th:href="@{/profile}" sec:authorize="isAuthenticated()">PROFILE/LOGOUT</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

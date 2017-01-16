@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('show page')" />
+<body>
+<nav th:replace="partials/navbar :: navbar" />
+<!--shows an individual post-->
+<div class="container container-marketing">
+    <h1>Post</h1>
+    <hr />
+        <div class="form-group">
+            <label>Title</label>
+            <p th:text="*{post.title}"></p>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <p th:text="*{post.description}"></p>
+        </div>
+    <div class="form-group">
+        <label>Author</label>
+        <p th:text="*{post.user.username}"></p>
+    </div>
+    <div class="form-group">
+        <label>Date</label>
+        <p th:text="*{post.createDate}"></p>
+    </div>
+    <div class="form-group">
+        <label>Recent Activity</label>
+        <p th:text="*{post.modifyDate}"></p>
+    </div>
+    <br />
+    <a th:href="@{/posts/{id}/edit(id=${post.id})}" sec:authorize="isAuthenticated()" class="btn btn-warning">Edit</a>
+    <a th:href="@{/posts/{id}/delete(id=${post.id})}" sec:authorize="isAuthenticated()" class="btn btn-danger">Delete</a>
+    <a th:href="@{/register}" sec:authorize="!isAuthenticated()" class="btn btn-success">Join us!</a>
+    <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn btn-info">Joined us already?</a>
+
+
+</div>
+<footer th:replace="partials/footer :: footer" />
+</body>
+</html>

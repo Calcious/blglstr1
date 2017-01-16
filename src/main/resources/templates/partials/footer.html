@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('navbar partial')" />
+<body>
+<footer th:fragment="footer" class="footer navbar-fixed-bottom navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header navbar-inverted">
+            <a th:href="@{/main}" class="navbar-brand welcome_title">@ Copyright 2017 AR Productions</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

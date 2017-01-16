@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('profile page')" />
+<body>
+<nav th:replace="partials/navbar :: navbar" />
+
+
+<div class="container">
+    <h1>Profile Information</h1>
+    <hr />
+    <a th:href="@{/create}" class="btn btn-success" sec:authorize="isAuthenticated()">New Post</a>
+    <br />
+    <br />
+    <form th:action="@{/logout}" th:method="POST" sec:authorize="isAuthenticated()">
+        <button class="btn btn-danger">Logout</button>
+    </form>
+
+    <div class="row">
+        <!-- edit form column -->
+        <div class="personal-info" th:object="${user}">
+            <h3>Personal info</h3>
+            <hr />
+                <br />
+            <form class="form-horizontal" role="form" method="post">
+
+                <div class="form-group">
+                    <label class="control-label name">Name:</label>
+                    <div>
+                        <h4 th:text="*{username}"></h4>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Email:</label>
+                    <div>
+                        <h4 th:text="*{email}"></h4>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <h3>Profile Picture</h3>
+    <hr />
+    <div class="container" id="img_div">
+
+    </div>
+    <div class="container" id="img_stuff_container">
+        <div class="container" id="file_box">
+            <form th:action="@{/fileupload}" th:method="post" enctype="multipart/form-data">
+                <label for="file">Upload a file!</label>
+                <input id="file" name="file" type="file" />
+                <br />
+                <input type="submit" value="Save and Upload!" />
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<footer th:replace="partials/footer :: footer" />
+</body>
+</html>

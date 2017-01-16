@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('home page')" />
+<body>
+<nav th:replace="partials/navbar :: navbar" />
+<div class="container">
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 class="cover-heading">WELCOME TO BLGLSTR</h1>
+                    <br /><br />
+                    <p class="lead">A blog from Ausgrave Royalty</p>
+                    <p class="lead">
+                        <a th:href="@{/register}" class="btn btn-lg btn-default">REGISTER NOW AND START POSTING</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="partials/footer :: footer" />
+</body>
+</html>
